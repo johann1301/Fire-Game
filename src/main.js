@@ -16,13 +16,13 @@ function setup() {
 
 function preload(){
     map.preload();
-    player.preload();
+    
     
     
   }
 
 function draw() {
-  player.draw();
+  
   map.draw();
   
 }
@@ -32,19 +32,19 @@ function draw() {
 function keyPressed() {
 	if (keyCode === 39) {
 		// move the player to the right
-		player.moveRight();
+		map.moveRight();
 	}
 	if (keyCode === 37) {
 		// move the player to the left
-		player.moveLeft();
+		map.moveLeft();
 	}
 	if (keyCode === 38) {
 		// move the player up
-		player.moveUp();
+		map.moveUp();
 	}
 	if (keyCode === 40) {
 		// move the player down
-		player.moveDown();
+		map.moveDown();
 	}
 }
 

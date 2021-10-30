@@ -15,14 +15,17 @@ class Map {
       this.image8 = loadImage('../images/right-down-corner – 1.png')
       this.background = loadImage('../images/Background.png')
       this.stone = loadImage('../images/stone.png')
+      this.character = loadImage('../images/0_Warrior_Walk_000.png')
       }
   
     constructor(){
       this.width = 100;
       this.height = 100;
       this.image;
-      this.x = 0;
-    this.y = 0;
+      this.character;
+      this.x = 100;
+        this.y = 100;
+     
     }
     draw (){
         
@@ -31,10 +34,10 @@ class Map {
         // Border
   
           for (let i=100; i<= 1300; i = i +100){
-            image(this.image2, i, this.y, this.width, this.height) 
+            image(this.image2, i, 0, this.width, this.height) 
           }
           for (let i=100; i<= 1100; i = i +100){
-            image(this.image3, this.x , i, this.width, this.height) 
+            image(this.image3, 0, i, this.width, this.height) 
           }
           for (let i=100; i<= 1300; i = i +100){
             image(this.image, i, 1200, this.width, this.height)
@@ -71,9 +74,30 @@ class Map {
             image(this.stone, i, 1000, this.width, this.height) 
           }
 
-          
+          // Player
+  
+      image(this.character, this.x, this.y, this.width, this.height)
 
-    
-      
     }
+    moveRight() {
+      if (this.x<=1200 && this.x !== this.stone){
+        this.x += 100
+      }
+          
+      }
+      moveLeft() {
+      if (this.x>=200 && this.x !== this.stone){
+          this.x -= 100
+      }
+      }
+      moveUp() {
+      if (this.y>=200 && this.y !== this.stone){
+          this.y -= 100
+      }
+      }
+      moveDown() {
+      if (this.y<=1000 && this.y !== this.stone){
+          this.y += 100
+      }
+      }
 }
