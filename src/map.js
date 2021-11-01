@@ -3,10 +3,7 @@
 
 class Map {
 
-  setup () {
-   
-  }
-
+  
     preload() {
       this.image9 = loadImage('../images/land_6.png')
       this.image = loadImage('../images/down.png')
@@ -20,6 +17,7 @@ class Map {
       this.background = loadImage('../images/Background.png')
       this.stone = loadImage('../images/stone.png')
       this.character = loadImage('../images/0_Warrior_Walk_000.png')
+      this.bomb = loadImage('../images/bomb.png')
       }
   
     constructor(){
@@ -28,7 +26,7 @@ class Map {
       this.image;
       this.character;
       this.x = 100;
-        this.y = 100;
+      this.y = 100;
      
     }
     draw (){
@@ -82,7 +80,9 @@ class Map {
           // Player
   
       image(this.character, this.x, this.y, this.width, this.height)
-
+          
+    
+     
     }
     moveRight() {
       if (this.x<=1200 && this.y !== 200 && this.y !== 400 && this.y !== 600 && this.y !== 800 && this.y !== 1000){
@@ -105,28 +105,25 @@ class Map {
           this.y += 100
       }
       }
+      
+}
+ let variable = false
+class Bomb {
+  preload() {
+    this.bomb = loadImage('../images/bomb.png')
+  }
+  draw(){
+    if (this.variable == true){
+    image(this.bomb, 100 , 100, 100, 100)
+    console.log('click')
+    }
+  }
+  dropBomb(){
+   this.variable = true
+    
+  }
+  
 }
 
 
 
-class Stone {
- 
-  
-
-  
-  preload() {
-    this.stone = loadImage('../images/stone.png')
-  }
-  constructor(){
-    this.width = 200;
-    this.hight = 200;
-    this.stone;
-  }
-
-  draw () {
-    image(this.stone)
-    
-  }
-
-
-} 

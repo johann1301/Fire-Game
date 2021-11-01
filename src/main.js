@@ -4,31 +4,31 @@
 const game = new Game();
 const player = new Player ();
 const map = new Map ();
+const bomb = new Bomb();
 
 
-// const stones = [];
+
+
 
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
   canvas.parent("canvas");
-//   for (let i=0; i < 5; i++){
-//     stones.push(new Stone (200,200))
-    // }
+
 }
 
 
 function preload(){
     map.preload();
+	bomb.preload();
     
     
     
   }
 
 function draw() {
-	// for (let i=0; i < 5; i++){
-	// 	stones[i].draw() ;
-	// 	}
   map.draw();
+  bomb.draw();
+  
   
 }
 
@@ -50,6 +50,9 @@ function keyPressed() {
 	if (keyCode === 40) {
 		// move the player down
 		map.moveDown();
+	}
+	if (keyCode === 188){
+		bomb.dropBomb();
 	}
 }
 
