@@ -1,7 +1,13 @@
 
-
+let stones =[]
 
 class Map {
+
+  setup () {
+    for (let i=0; i < 6; i++){
+    stones[i] = new Stone (200, 200)
+    }
+  }
 
     preload() {
       this.image9 = loadImage('../images/land_6.png')
@@ -14,7 +20,7 @@ class Map {
       this.image7 = loadImage('../images/right-top-corner – 1.png')
       this.image8 = loadImage('../images/right-down-corner – 1.png')
       this.background = loadImage('../images/Background.png')
-      this.stone = loadImage('../images/stone.png')
+      // this.stone = loadImage('../images/stone.png')
       this.character = loadImage('../images/0_Warrior_Walk_000.png')
       }
   
@@ -30,6 +36,7 @@ class Map {
     draw (){
         
             clear()
+
 
         // Border
   
@@ -57,22 +64,22 @@ class Map {
 
         //   Stones
 
-          for (let i=200; i<= 1300; i = i +200){
-            image(this.stone, i, 200, this.width, this.height) 
-          }
+          // for (let i=200; i<= 1300; i = i +200){
+          //   image(this.stone, i, 200, this.width, this.height) 
+          // }
 
-          for (let i=200; i<= 1300; i = i +200){
-            image(this.stone, i, 400, this.width, this.height) 
-          }
-          for (let i=200; i<= 1300; i = i +200){
-            image(this.stone, i, 600, this.width, this.height) 
-          }
-          for (let i=200; i<= 1300; i = i +200){
-            image(this.stone, i, 800, this.width, this.height) 
-          }
-          for (let i=200; i<= 1300; i = i +200){
-            image(this.stone, i, 1000, this.width, this.height) 
-          }
+          // for (let i=200; i<= 1300; i = i +200){
+          //   image(this.stone, i, 400, this.width, this.height) 
+          // }
+          // for (let i=200; i<= 1300; i = i +200){
+          //   image(this.stone, i, 600, this.width, this.height) 
+          // }
+          // for (let i=200; i<= 1300; i = i +200){
+          //   image(this.stone, i, 800, this.width, this.height) 
+          // }
+          // for (let i=200; i<= 1300; i = i +200){
+          //   image(this.stone, i, 1000, this.width, this.height) 
+          // }
 
           // Player
   
@@ -101,3 +108,27 @@ class Map {
       }
       }
 }
+
+
+
+class Stone {
+ 
+  
+
+  
+  preload() {
+    this.stone = loadImage('../images/stone.png')
+  }
+  constructor(){
+    this.width = 100;
+    this.hight = 100;
+    this.stone;
+  }
+
+  draw () {
+    image(this.stone)
+    
+  }
+
+
+} console.log (stones)

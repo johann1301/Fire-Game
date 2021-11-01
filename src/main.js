@@ -11,7 +11,7 @@ const map = new Map ();
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
   canvas.parent("canvas");
- 
+  
 }
 
 function preload(){
@@ -22,7 +22,7 @@ function preload(){
   }
 
 function draw() {
-  
+	
   map.draw();
   
 }
