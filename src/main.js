@@ -6,13 +6,16 @@ const player = new Player ();
 const map = new Map ();
 
 
-
+// const stones = [];
 
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
   canvas.parent("canvas");
-  
+//   for (let i=0; i < 5; i++){
+//     stones.push(new Stone (200,200))
+    // }
 }
+
 
 function preload(){
     map.preload();
@@ -22,7 +25,9 @@ function preload(){
   }
 
 function draw() {
-	
+	// for (let i=0; i < 5; i++){
+	// 	stones[i].draw() ;
+	// 	}
   map.draw();
   
 }

@@ -1,12 +1,10 @@
 
-let stones =[]
+
 
 class Map {
 
   setup () {
-    for (let i=0; i < 6; i++){
-    stones.push(new Stone (200,200))
-    }
+   
   }
 
     preload() {
@@ -87,23 +85,23 @@ class Map {
 
     }
     moveRight() {
-      if (this.x<=1200 && this.x !== this.stone){
+      if (this.x<=1200 && this.y !== 200 && this.y !== 400 && this.y !== 600 && this.y !== 800 && this.y !== 1000){
         this.x += 100
       }
           
       }
       moveLeft() {
-      if (this.x>=200 && this.x !== this.stone){
+      if (this.x>=200 && this.y !== 200 && this.y !== 400 && this.y !== 600 && this.y !== 800 && this.y !== 1000){
           this.x -= 100
       }
       }
       moveUp() {
-      if (this.y>=200 && this.y !== this.stone){
+      if (this.y>=200 && this.x !== 200 && this.x !== 400 && this.x !== 600 && this.x !== 800 && this.x !== 1000 && this.x !== 1200){
           this.y -= 100
       }
       }
       moveDown() {
-      if (this.y<=1000 && this.y !== this.stone){
+      if (this.y<=1000 && this.x !== 200 && this.x !== 400 && this.x !== 600 && this.x !== 800 && this.x !== 1000 && this.x !== 1200){
           this.y += 100
       }
       }
@@ -111,24 +109,24 @@ class Map {
 
 
 
-// class Stone {
+class Stone {
  
   
 
   
-//   preload() {
-//     this.stone = loadImage('../images/stone.png')
-//   }
-//   constructor(){
-//     this.width = 100;
-//     this.hight = 100;
-//     this.stone;
-//   }
+  preload() {
+    this.stone = loadImage('../images/stone.png')
+  }
+  constructor(){
+    this.width = 200;
+    this.hight = 200;
+    this.stone;
+  }
 
-//   draw () {
-//     image(this.stone)
+  draw () {
+    image(this.stone)
     
-//   }
+  }
 
 
-// } console.log (stones)
+} 
