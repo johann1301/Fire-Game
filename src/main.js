@@ -4,7 +4,7 @@
 const game = new Game();
 const player = new Player ();
 const map = new Map ();
-const bomb = new Bomb();
+
 
 
 
@@ -19,7 +19,7 @@ function setup() {
 
 function preload(){
     map.preload();
-	bomb.preload();
+	
     
     
     
@@ -27,7 +27,7 @@ function preload(){
 
 function draw() {
   map.draw();
-  bomb.draw();
+  
   
   
 }
@@ -52,7 +52,7 @@ function keyPressed() {
 		map.moveDown();
 	}
 	if (keyCode === 188){
-		bomb.dropBomb();
+		map.dropBomb();
 	}
 }
 

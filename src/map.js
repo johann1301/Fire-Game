@@ -1,4 +1,7 @@
 
+let variable = false;
+let bombx = 100;
+let bomby = 100;
 
 
 class Map {
@@ -77,6 +80,16 @@ class Map {
             image(this.stone, i, 1000, this.width, this.height) 
           }
 
+          // Bomb
+
+          if (this.variable == true){
+            image(this.bomb, this.bombx , this.bomby, 100, 100);
+            
+            
+            }
+
+
+
           // Player
   
       image(this.character, this.x, this.y, this.width, this.height)
@@ -105,23 +118,26 @@ class Map {
           this.y += 100
       }
       }
+      dropBomb(){
+        this.variable = true;
+        setTimeout(() => {  this.variable = false }, 2000);
+        this.bombx = this.x;
+        this.bomby = this.y;
+        setTimeout(() => {  this.bombx = this.x }, 2000);
+        setTimeout(() => {  this.bomby = this.y }, 2000);
+         
+       }
       
 }
- let variable = false
+ 
 class Bomb {
   preload() {
-    this.bomb = loadImage('../images/bomb.png')
-  }
-  draw(){
-    if (this.variable == true){
-    image(this.bomb, 100 , 100, 100, 100)
-    console.log('click')
-    }
-  }
-  dropBomb(){
-   this.variable = true
     
   }
+  draw(){
+    
+  }
+  
   
 }
 
