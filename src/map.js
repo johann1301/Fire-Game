@@ -90,11 +90,17 @@ class Map {
        
 
       //Bombs
-      // this.bombs.forEach(function(bombs){
-      //   bombs.draw()
-      // })
-      
+
+      // for (let i=0; i< this.bombs.length; i++){
+      //   this.bombs[i]
+      // }
+
     
+      this.bombs.forEach(function(bomb){
+        bomb.draw()
+      })
+       
+  
      
     }
     moveRight() {
@@ -133,31 +139,14 @@ class Map {
 }
  
 class Bomb {
-
-  constructor(){
-    this.bombImage = this.bombImage
-  }
-
-
   
-
 
   draw (){
 
    
-    image(this.bombImage, 100 , 100, 100, 100);
+    image(bombImage, 100 , 100, 100, 100);
   }
 
-
-  // dropBomb(){
-  //   this.variable = true;
-  //   setTimeout(() => {  this.variable = false }, 2000);
-  //   this.bombx = this.x;
-  //   this.bomby = this.y;
-  //   setTimeout(() => {  this.bombx = this.x }, 2000);
-  //   setTimeout(() => {  this.bomby = this.y }, 2000);
-     
-  //  }
 
 }
 

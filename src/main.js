@@ -5,7 +5,8 @@
 
 const map = new Map ();
 
-// let variable = false;
+
+
 
 
 
@@ -21,6 +22,7 @@ function setup() {
 function preload(){
     map.preload();
 	
+	
     
     
     
@@ -28,6 +30,7 @@ function preload(){
 
 function draw() {
   map.draw();
+
   
   
   
