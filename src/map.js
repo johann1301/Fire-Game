@@ -1,12 +1,17 @@
 
-let variable = false;
-let bombx = 100;
-let bomby = 100;
+
+// let bombx = 100;
+// let bomby = 100;
+
 
 
 class Map {
+  setup(){
+     this.bombs = [];
+     console.log(this.bombs)
+  }
 
-  
+ 
     preload() {
       this.image9 = loadImage('../images/land_6.png')
       this.image = loadImage('../images/down.png')
@@ -20,7 +25,7 @@ class Map {
       this.background = loadImage('../images/Background.png')
       this.stone = loadImage('../images/stone.png')
       this.character = loadImage('../images/0_Warrior_Walk_000.png')
-      this.bomb = loadImage('../images/bomb.png')
+      this.bombImage = loadImage('../images/bomb.png')
       }
   
     constructor(){
@@ -80,20 +85,18 @@ class Map {
             image(this.stone, i, 1000, this.width, this.height) 
           }
 
-          // Bomb
-
-          if (this.variable == true){
-            image(this.bomb, this.bombx , this.bomby, 100, 100);
-            
-            
-            }
-
-
-
+        
           // Player
   
       image(this.character, this.x, this.y, this.width, this.height)
-          
+       
+
+      //Bombs
+      if (keyCode === 188) {
+        this.bombs.push(new Bomb(this.bombImage))
+        
+
+      }
     
      
     }
@@ -118,26 +121,32 @@ class Map {
           this.y += 100
       }
       }
-      dropBomb(){
-        this.variable = true;
-        setTimeout(() => {  this.variable = false }, 2000);
-        this.bombx = this.x;
-        this.bomby = this.y;
-        setTimeout(() => {  this.bombx = this.x }, 2000);
-        setTimeout(() => {  this.bomby = this.y }, 2000);
-         
-       }
+      
       
 }
  
 class Bomb {
-  preload() {
-    
-  }
-  draw(){
-    
-  }
+
+
   
+
+
+  draw (){
+
+   
+    image(this.bombImage, 100 , 100, 100, 100);
+  }
+
+
+  // dropBomb(){
+  //   this.variable = true;
+  //   setTimeout(() => {  this.variable = false }, 2000);
+  //   this.bombx = this.x;
+  //   this.bomby = this.y;
+  //   setTimeout(() => {  this.bombx = this.x }, 2000);
+  //   setTimeout(() => {  this.bomby = this.y }, 2000);
+     
+  //  }
   
 }
 
