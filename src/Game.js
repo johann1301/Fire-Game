@@ -1,7 +1,7 @@
 
 
-let bombx = 100;
-let bomby = 400;
+
+
 
 
 
@@ -38,11 +38,17 @@ class Map {
       this.y = 100;
       this.bombs = [];
       this.fires = [];
+      this.bombx = 100;
+      this.bomby = 100;
+      this.firex = 2000;
+      this.firey = 2000;
       
     }
     draw (){
         
             clear()
+
+      
 
 
         // Border
@@ -139,16 +145,22 @@ class Map {
         if (this.bombs.length < 1){
         this.bombs.push(new Bomb(this.bombImage))
         setTimeout(() => {  this.bombs.shift() }, 2500);
-        bombx = this.x
-        bomby = this.y 
-          console.log(this.bombs)
+        this.bombx = this.x
+        this.bomby = this.y 
         } 
         
-      }
+      } 
 
       explosion (){
+        if (this.fires.length < 1){
         this.fires.push(new Fire(this.fireD, this.fireL, this.fireR, this.fireU))
-        setTimeout(() => {  this.fires.shift() }, 1400);
+        setTimeout(() => {  this.fires.shift() }, 1500);
+        this.firex = this.bombx;
+        this.firey = this.bomby;
+        setTimeout(() => {  this.firex = 2000 }, 1500);
+        setTimeout(() => {  this.firey = 2000 }, 1500);
+        }
+
       }
       
       
@@ -161,7 +173,7 @@ class Bomb {
 
 
 
-    image(map.bombImage, bombx, bomby, 100, 100);
+    image(map.bombImage, map.bombx, map.bomby, 100, 100);
     
     
   }
@@ -170,21 +182,32 @@ class Bomb {
 }
 
 class Fire {
+  
+  collision () {
+    // const rightFireX = map.firex
+    // const rightFireY = map.firey
+    // console.log(rightFireX)
+    // var d = dist(rightFireX, rightFireY, map.x, map.y)
+    // if (d = 0){
+      
+    // }
+    
+  }
 
   draw (){
-    if (bombx<=1200 && bomby !== 200 && bomby !== 400 && bomby !== 600 && bomby !== 800 && bomby !== 1000){
+    if (map.bombx<=1200 && map.bomby !== 200 && map.bomby !== 400 && map.bomby !== 600 && map.bomby !== 800 && map.bomby !== 1000){
  
-      // setInterval(() => { image(map.fireR, bombx + 100, bomby, 200, 100)  }, 1000)
-      image(map.fireR, bombx + 100, bomby, 200, 100)
+      
+      image(map.fireR, map.bombx + 100, map.bomby, 200, 100)
       }
-    if (bombx >=200 && bomby !== 200 && bomby !== 400 && bomby !== 600 && bomby !== 800 && bomby !== 1000){
-      image(map.fireL, bombx -200, bomby, 200, 100)
+    if (map.bombx >=200 && map.bomby !== 200 && map.bomby !== 400 && map.bomby !== 600 && map.bomby !== 800 && map.bomby !== 1000){
+      image(map.fireL, map.bombx -200, map.bomby, 200, 100)
     }
-    if (bomby>=200 && bombx !== 200 && bombx !== 400 && bombx !== 600 && bombx !== 800 && bombx !== 1000 && bombx !== 1200){
-      image(map.fireU, bombx , bomby -200, 100, 200)
+    if (map.bomby>=200 && map.bombx !== 200 && map.bombx !== 400 && map.bombx !== 600 && map.bombx !== 800 && map.bombx !== 1000 && map.bombx !== 1200){
+      image(map.fireU, map.bombx , map.bomby -200, 100, 200)
     }
-    if (bomby<=1000 && bombx !== 200 && bombx !== 400 && bombx !== 600 && bombx !== 800 && bombx !== 1000 && bombx !== 1200){
-      image(map.fireD, bombx , bomby +100, 100, 200)
+    if (map.bomby<=1000 && map.bombx !== 200 && map.bombx !== 400 && map.bombx !== 600 && map.bombx !== 800 && map.bombx !== 1000 && map.bombx !== 1200){
+      image(map.fireD, map.bombx , map.bomby +100, 100, 200)
     }
   }
 }
