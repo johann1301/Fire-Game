@@ -1,7 +1,7 @@
 
 
-// let bombx = 100;
-// let bomby = 100;
+let bombx = 100;
+let bomby = 400;
 
 
 
@@ -23,6 +23,10 @@ class Map {
       this.stone = loadImage('../images/stone.png')
       this.character = loadImage('../images/0_Warrior_Walk_000.png')
       this.bombImage = loadImage('../images/bomb.png')
+      this.fireR = loadImage('../images/fire-right.png')
+      this.fireL = loadImage('../images/fire-left.png')
+      this.fireU = loadImage('../images/fire-up.png')
+      this.fireD = loadImage('../images/fire-down.png')
       }
   
     constructor(){
@@ -83,22 +87,20 @@ class Map {
             image(this.stone, i, 1000, this.width, this.height) 
           }
 
+          //Bombs
+ 
+      this.bombs.forEach(function(bomb){
+        bomb.draw()
+      
+      })
+
         
           // Player
   
       image(this.character, this.x, this.y, this.width, this.height)
        
 
-      //Bombs
-
-      // for (let i=0; i< this.bombs.length; i++){
-      //   this.bombs[i]
-      // }
-
-    
-      this.bombs.forEach(function(bomb){
-        bomb.draw()
-      })
+      
        
   
      
@@ -126,10 +128,11 @@ class Map {
       }
 
       addBomb(){
-        if (this.bombs.length <= 1){
+        if (this.bombs.length < 1){
         this.bombs.push(new Bomb(this.bombImage))
         setTimeout(() => {  this.bombs.shift() }, 2000);
-          
+        bombx = this.x
+        bomby = this.y 
           console.log(this.bombs)
         } 
         
@@ -142,9 +145,23 @@ class Bomb {
   
 
   draw (){
+if (bombx<=1200 && bomby !== 200 && bomby !== 400 && bomby !== 600 && bomby !== 800 && bomby !== 1000){
+  image(map.fireR, bombx + 100, bomby, 200, 100)
+  }
+if (bombx >=200 && bomby !== 200 && bomby !== 400 && bomby !== 600 && bomby !== 800 && bomby !== 1000){
+  image(map.fireL, bombx -200, bomby, 200, 100)
+}
+if (bomby>=200 && bombx !== 200 && bombx !== 400 && bombx !== 600 && bombx !== 800 && bombx !== 1000 && bombx !== 1200){
+  image(map.fireU, bombx , bomby -200, 100, 200)
+}
+if (bomby<=1000 && bombx !== 200 && bombx !== 400 && bombx !== 600 && bombx !== 800 && bombx !== 1000 && bombx !== 1200){
+  image(map.fireD, bombx , bomby +100, 100, 200)
+}
 
-   
-    image(bombImage, 100 , 100, 100, 100);
+
+    image(map.bombImage, bombx, bomby, 100, 100);
+    
+    
   }
 
 
