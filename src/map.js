@@ -6,10 +6,7 @@
 
 
 class Map {
-  setup(){
-     this.bombs = [];
-     console.log(this.bombs)
-  }
+
 
  
     preload() {
@@ -35,7 +32,8 @@ class Map {
       this.character;
       this.x = 100;
       this.y = 100;
-     
+      this.bombs = [];
+      
     }
     draw (){
         
@@ -92,11 +90,10 @@ class Map {
        
 
       //Bombs
-      if (keyCode === 188) {
-        this.bombs.push(new Bomb(this.bombImage))
-        
-
-      }
+      // this.bombs.forEach(function(bombs){
+      //   bombs.draw()
+      // })
+      
     
      
     }
@@ -121,11 +118,25 @@ class Map {
           this.y += 100
       }
       }
+
+      addBomb(){
+        if (this.bombs.length <= 1){
+        this.bombs.push(new Bomb(this.bombImage))
+        setTimeout(() => {  this.bombs.shift() }, 2000);
+          
+          console.log(this.bombs)
+        } 
+        
+      }
       
       
 }
  
 class Bomb {
+
+  constructor(){
+    this.bombImage = this.bombImage
+  }
 
 
   
@@ -147,7 +158,7 @@ class Bomb {
   //   setTimeout(() => {  this.bomby = this.y }, 2000);
      
   //  }
-  
+
 }
 
 

@@ -1,11 +1,11 @@
 
 
 
-const game = new Game();
-const player = new Player ();
+
+
 const map = new Map ();
 
-let variable = false;
+// let variable = false;
 
 
 
@@ -32,6 +32,7 @@ function draw() {
   
   
   
+  
 }
 
 
@@ -53,10 +54,10 @@ function keyPressed() {
 		// move the player down
 		map.moveDown();
 	}
-	// if (keyCode === 188 && variable === false){
-	// 	bomb.dropBomb();
+	if (keyCode === 188 ){
+		map.addBomb();
 		
-	// }
+	}
 }
 
 
