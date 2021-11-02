@@ -59,6 +59,7 @@ function keyPressed() {
 	}
 	if (keyCode === 188 ){
 		map.addBomb();
+		setTimeout(() => {  map.explosion() }, 1000);
 		
 	}
 }
