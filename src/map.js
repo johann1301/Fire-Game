@@ -142,10 +142,12 @@ class Map {
 }
  
 class Bomb {
-  
+
 
   draw (){
 if (bombx<=1200 && bomby !== 200 && bomby !== 400 && bomby !== 600 && bomby !== 800 && bomby !== 1000){
+ 
+  // setInterval(() => { image(map.fireR, bombx + 100, bomby, 200, 100)  }, 1000)
   image(map.fireR, bombx + 100, bomby, 200, 100)
   }
 if (bombx >=200 && bomby !== 200 && bomby !== 400 && bomby !== 600 && bomby !== 800 && bomby !== 1000){
