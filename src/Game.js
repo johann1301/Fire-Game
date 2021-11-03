@@ -21,27 +21,41 @@ class Map {
       this.image8 = loadImage('../images/right-down-corner – 1.png')
       this.background = loadImage('../images/Background.png')
       this.stone = loadImage('../images/stone.png')
-      this.character = loadImage('../images/0_Warrior_Walk_000.png')
+      this.player1 = loadImage('../images/player1.png')
+      this.player2 = loadImage('../images/player2.png')
       this.bombImage = loadImage('../images/bomb.png')
+      this.bombImage2 = loadImage('../images/bomb.png')
       this.fireR = loadImage('../images/fire-right.png')
       this.fireL = loadImage('../images/fire-left.png')
       this.fireU = loadImage('../images/fire-up.png')
       this.fireD = loadImage('../images/fire-down.png')
+      this.fire2R = loadImage('../images/fire-right.png')
+      this.fire2L = loadImage('../images/fire-left.png')
+      this.fire2U = loadImage('../images/fire-up.png')
+      this.fire2D = loadImage('../images/fire-down.png')
       }
-  
+   
     constructor(){
       this.width = 100;
       this.height = 100;
       this.image;
-      this.character;
+      this.player1;
       this.x = 100;
       this.y = 100;
+      this.pl2x = 1300;
+      this.pl2y = 1100;
       this.bombs = [];
       this.fires = [];
       this.bombx = 100;
       this.bomby = 100;
       this.firex = 2000;
       this.firey = 2000;
+      this.bombs2 = [];
+      this.fires2 = [];
+      this.bomb2x = 100;
+      this.bomb2y = 100;
+      this.fire2x = 2000;
+      this.fire2y = 2000;
       this.collision = false;
       this.life = 3;
       
@@ -104,17 +118,25 @@ class Map {
       
       })
 
+      //Bombs 2
+ 
+      this.bombs2.forEach(function(bomb2){
+        bomb2.draw()
+      
+      })
+
       //Fire
  
-      this.fires.forEach(function(fire){
-        fire.draw()
+      this.fires2.forEach(function(fire2){
+        fire2.draw()
       
       })
 
         
           // Player
   
-      image(this.character, this.x, this.y, this.width, this.height)
+      image(this.player1, this.x, this.y, this.width, this.height)
+      image(this.player2, this.pl2x, this.pl2y, this.width, this.height)
        
        
         // Collision
@@ -131,12 +153,12 @@ class Map {
        if (map.y === map.firey + 100 || map.y === map.firey +200 ){
         fire.collision ()
        }
-
-        
-       
-  
-     
+ 
     }
+
+
+
+    //Player 1
     moveRight() {
       if (this.x<=1200 && this.y !== 200 && this.y !== 400 && this.y !== 600 && this.y !== 800 && this.y !== 1000){
         this.x += 100
@@ -181,6 +203,54 @@ class Map {
         }
 
       }
+
+
+
+       //Player 2
+    moveRight2() {
+      if (this.pl2x<=1200 && this.pl2y !== 200 && this.pl2y !== 400 && this.pl2y !== 600 && this.pl2y !== 800 && this.pl2y !== 1000){
+        this.pl2x += 100
+      }
+          
+      }
+      moveLeft2() {
+      if (this.pl2x>=200 && this.pl2y !== 200 && this.pl2y !== 400 && this.pl2y !== 600 && this.pl2y !== 800 && this.pl2y !== 1000){
+          this.pl2x -= 100
+      }
+      }
+      moveUp2() {
+      if (this.pl2y>=200 && this.pl2x !== 200 && this.pl2x !== 400 && this.pl2x !== 600 && this.pl2x !== 800 && this.pl2x !== 1000 && this.pl2x !== 1200){
+          this.pl2y -= 100
+      }
+      }
+      moveDown2() {
+      if (this.pl2y<=1000 && this.pl2x !== 200 && this.pl2x !== 400 && this.pl2x !== 600 && this.pl2x !== 800 && this.pl2x !== 1000 && this.pl2x !== 1200){
+          this.pl2y += 100
+      }
+      }
+
+      addBomb2(){
+        if (this.bombs2.length < 1){
+        this.bombs2.push(new Bomb2(this.bombImage2))
+        setTimeout(() => {  this.bombs2.shift() }, 2500);
+        this.bomb2x = this.pl2x
+        this.bomb2y = this.pl2y 
+        } 
+        
+      } 
+
+      explosion2 (){
+        if (this.fires2.length < 1){
+          setTimeout(() => { this.fires2.push(new Fire2(this.fireD, this.fireL, this.fireR, this.fireU))  }, 1000);
+        setTimeout(() => {  this.fires2.shift() }, 2500);
+        setTimeout(() => {  this.fire2x = this.bomb2x; }, 1000);
+        setTimeout(() => {  this.fire2y = this.bomb2y; }, 1000)
+        setTimeout(() => {  this.fire2x = 2000 }, 2500);
+        setTimeout(() => {  this.fire2y = 2000 }, 2500);
+        
+        }
+
+      }
      
       
       
@@ -195,6 +265,22 @@ class Bomb {
 
 
     image(map.bombImage, map.bombx, map.bomby, 100, 100);
+    
+    
+  }
+
+
+}
+
+
+class Bomb2 {
+
+
+  draw (){
+
+
+
+    image(map.bombImage2, map.bomb2x, map.bomb2y, 100, 100);
     
     
   }
@@ -235,6 +321,47 @@ class Fire {
 
 
 }
+
+
+
+class Fire2 {
+  
+
+  draw (){
+
+    
+
+    if (map.bomb2x<=1200 && map.bomb2y !== 200 && map.bomb2y !== 400 && map.bomb2y !== 600 && map.bomb2y !== 800 && map.bomb2y !== 1000){
+      image(map.fire2R, map.bomb2x + 100, map.bomb2y, 200, 100)
+      }
+    if (map.bomb2x >=200 && map.bomb2y !== 200 && map.bomb2y !== 400 && map.bomb2y !== 600 && map.bomb2y !== 800 && map.bomb2y !== 1000){
+      image(map.fire2L, map.bomb2x -200, map.bomb2y, 200, 100)
+    }
+    if (map.bomb2y>=200 && map.bomb2x !== 200 && map.bomb2x !== 400 && map.bomb2x !== 600 && map.bomb2x !== 800 && map.bomb2x !== 1000 && map.bomb2x !== 1200){
+      image(map.fire2U, map.bomb2x , map.bomb2y -200, 100, 200)
+    }
+    if (map.bomb2y<=1000 && map.bomb2x !== 200 && map.bomb2x !== 400 && map.bomb2x !== 600 && map.bomb2x !== 800 && map.bomb2x !== 1000 && map.bomb2x !== 1200){
+      image(map.fire2D, map.bomb2x , map.bomb2by +100, 100, 200)
+    }
+  }
+
+  collision (){
+
+    map.fires.shift();
+    // map.bombs.shift();
+    map.firex = 2000;
+    map.firey = 2000;
+    map.life -= 1;
+
+  }
+
+
+}
+
+
+
+
+
 
 
 
