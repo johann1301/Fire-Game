@@ -219,23 +219,27 @@ class Map {
     //Player 1
     moveRight() {
       if (this.x<=1200 && this.y !== 200 && this.y !== 400 && this.y !== 600 && this.y !== 800 && this.y !== 1000){
+        this.player1 = loadImage('../images/player1-right.png')
         this.x += 100
       }
           
       }
       moveLeft() {
       if (this.x>=200 && this.y !== 200 && this.y !== 400 && this.y !== 600 && this.y !== 800 && this.y !== 1000){
+        this.player1 = loadImage('../images/player1-left.png')
           this.x -= 100
       }
       }
       moveUp() {
       if (this.y>=200 && this.x !== 200 && this.x !== 400 && this.x !== 600 && this.x !== 800 && this.x !== 1000 && this.x !== 1200){
-          this.y -= 100
+        this.player1 = loadImage('../images/player1-up.png')  
+        this.y -= 100
       }
       }
       moveDown() {
       if (this.y<=1000 && this.x !== 200 && this.x !== 400 && this.x !== 600 && this.x !== 800 && this.x !== 1000 && this.x !== 1200){
-          this.y += 100
+        this.player1 = loadImage('../images/player1.png')  
+        this.y += 100
       }
       }
 
@@ -267,23 +271,27 @@ class Map {
        //Player 2
     moveRight2() {
       if (this.pl2x<=1200 && this.pl2y !== 200 && this.pl2y !== 400 && this.pl2y !== 600 && this.pl2y !== 800 && this.pl2y !== 1000){
+        this.player2 = loadImage('../images/player2-right.png')
         this.pl2x += 100
       }
           
       }
       moveLeft2() {
       if (this.pl2x>=200 && this.pl2y !== 200 && this.pl2y !== 400 && this.pl2y !== 600 && this.pl2y !== 800 && this.pl2y !== 1000){
-          this.pl2x -= 100
+        this.player2 = loadImage('../images/player2-left.png')  
+        this.pl2x -= 100
       }
       }
       moveUp2() {
       if (this.pl2y>=200 && this.pl2x !== 200 && this.pl2x !== 400 && this.pl2x !== 600 && this.pl2x !== 800 && this.pl2x !== 1000 && this.pl2x !== 1200){
-          this.pl2y -= 100
+        this.player2 = loadImage('../images/player2-up.png')  
+        this.pl2y -= 100
       }
       }
       moveDown2() {
       if (this.pl2y<=1000 && this.pl2x !== 200 && this.pl2x !== 400 && this.pl2x !== 600 && this.pl2x !== 800 && this.pl2x !== 1000 && this.pl2x !== 1200){
-          this.pl2y += 100
+        this.player2 = loadImage('../images/player2.png')  
+        this.pl2y += 100
       }
       }
 
