@@ -482,7 +482,7 @@ class Gun {
     this.gun8x = 2000 ;
     this.gun8y = 2000 ;
 
-    this.number1 = 10;
+    this.number = 7;
     
 
 
@@ -494,12 +494,12 @@ draw (){
 
   
 
-  if (frameCount % 20 === 0 ){
+  // if (frameCount % 150 === 0 ){
 
-    this.number = Math.floor(Math.random() * (8 - 0) + 0);
+  //   this.number = Math.floor(Math.random() * (8 - 0) + 0);
   
     
-  }
+  // }
 
 
 
@@ -565,18 +565,80 @@ draw (){
     this.gun8y = 100 ;
     image(this.gunFireT, this.gun8x , this.gun8y , 100, 500);
   }
-
-
+  console.log(map.y)
+ console.log(this.gun8y)
  // Collision
 
- let d1 = dist(500,100, map.height, map.width)
+ //Gun collision Player 1
 
- 
-
- if (d1 = 0){
-   console.log('yes')
+ if (map.x === this.gun1x && map.y === this.gun1y || map.x === this.gun1x +100 && map.y === this.gun1y  || map.x === this.gun1x +200 && map.y === this.gun1y  || map.x === this.gun1x +300 && map.y === this.gun1y  || map.x === this.gun1x +400 && map.y === this.gun1y ){
+ console.log("yes")
  }
-//  console.log(d1)
+
+ if (map.x === this.gun2x && map.y === this.gun2y || map.x === this.gun2x +100 && map.y === this.gun2y  || map.x === this.gun2x +200 && map.y === this.gun2y  || map.x === this.gun2x +300 && map.y === this.gun2y  || map.x === this.gun2x +400 && map.y === this.gun2y ){
+  console.log("yes")
+  }
+
+ if (map.y === this.gun3y && map.x === this.gun3x || map.y === this.gun3y +100 && map.x === this.gun3x  || map.y === this.gun3y +200 && map.x === this.gun3x  || map.y === this.gun3y +300 && map.x === this.gun3x  || map.y === this.gun3y +400 && map.x === this.gun3x ){
+  console.log("yes")
+  }
+
+ if (map.y === this.gun4y && map.x === this.gun4x || map.y === this.gun4y +100 && map.x === this.gun4x  || map.y === this.gun4y +200 && map.x === this.gun4x  || map.y === this.gun4y +300 && map.x === this.gun4x  || map.y === this.gun4y +400 && map.x === this.gun4x ){
+  console.log("yes")
+  }
+
+ if (map.x === this.gun5x && map.y === this.gun5y || map.x === this.gun5x +100 && map.y === this.gun5y  || map.x === this.gun5x +200 && map.y === this.gun5y  || map.x === this.gun5x +300 && map.y === this.gun5y  || map.x === this.gun5x +400 && map.y === this.gun5y ){
+  console.log("yes")
+  }
+
+ if (map.x === this.gun6x && map.y === this.gun6y || map.x === this.gun6x +100 && map.y === this.gun6y  || map.x === this.gun6x +200 && map.y === this.gun6y  || map.x === this.gun6x +300 && map.y === this.gun6y  || map.x === this.gun6x +400 && map.y === this.gun6y ){
+  console.log("yes")
+  }
+
+ if (map.y === this.gun7y && map.x === this.gun7x || map.y === this.gun7y +100 && map.x === this.gun7x  || map.y === this.gun7y +200 && map.x === this.gun7x  || map.y === this.gun7y +300 && map.x === this.gun7x  || map.y === this.gun7y +400 && map.x === this.gun7x ){
+  console.log("yes")
+  }
+
+ if (map.y === this.gun8y && map.x === this.gun8x || map.y === this.gun8y +100 && map.x === this.gun8x  || map.y === this.gun8y +200 && map.x === this.gun8x  || map.y === this.gun8y +300 && map.x === this.gun8x  || map.y === this.gun8y +400 && map.x === this.gun8x ){
+  console.log("yes")
+  }
+
+
+
+
+   //Gun collision Player 2
+
+ if (map.pl2x === this.gun1x && map.pl2y === this.gun1y || map.pl2x === this.gun1x +100 && map.pl2y === this.gun1y  || map.pl2x === this.gun1x +200 && map.pl2y === this.gun1y  || map.pl2x === this.gun1x +300 && map.pl2y === this.gun1y  || map.pl2x === this.gun1x +400 && map.pl2y === this.gun1y ){
+  console.log("yes")
+  }
+    
+ if (map.pl2x === this.gun2x && map.pl2y === this.gun2y || map.pl2x === this.gun2x +100 && map.pl2y === this.gun2y  || map.pl2x === this.gun2x +200 && map.pl2y === this.gun2y  || map.pl2x === this.gun2x +300 && map.pl2y === this.gun2y  || map.pl2x === this.gun2x +400 && map.pl2y === this.gun2y ){
+  console.log("yes")
+  }
+
+ if (map.pl2y === this.gun3y && map.pl2x === this.gun3x || map.pl2y === this.gun3y +100 && map.pl2x === this.gun3x  || map.pl2y === this.gun3y +200 && map.pl2x === this.gun3x  || map.pl2y === this.gun3y +300 && map.pl2x === this.gun3x  || map.pl2y === this.gun3y +400 && map.pl2x === this.gun3x ){
+  console.log("yes")
+  }
+
+ if (map.pl2y === this.gun4y && map.pl2x === this.gun4x || map.pl2y === this.gun4y +100 && map.pl2x === this.gun4x  || map.pl2y === this.gun4y +200 && map.pl2x === this.gun4x  || map.pl2y === this.gun4y +300 && map.pl2x === this.gun4x  || map.pl2y === this.gun4y +400 && map.pl2x === this.gun4x ){
+  console.log("yes")
+  }
+
+ if (map.pl2x === this.gun5x && map.pl2y === this.gun5y || map.pl2x === this.gun5x +100 && map.pl2y === this.gun5y  || map.pl2x === this.gun5x +200 && map.pl2y === this.gun5y  || map.pl2x === this.gun5x +300 && map.pl2y === this.gun5y  || map.pl2x === this.gun5x +400 && map.pl2y === this.gun5y ){
+  console.log("yes")
+  }
+
+ if (map.pl2x === this.gun6x && map.pl2y === this.gun6y || map.pl2x === this.gun6x +100 && map.pl2y === this.gun6y  || map.pl2x === this.gun6x +200 && map.pl2y === this.gun6y  || map.pl2x === this.gun6x +300 && map.pl2y === this.gun6y  || map.pl2x === this.gun6x +400 && map.pl2y === this.gun6y ){
+  console.log("yes")
+  }
+
+ if (map.pl2y === this.gun7y && map.pl2x === this.gun7x || map.pl2y === this.gun7y +100 && map.pl2x === this.gun7x  || map.pl2y === this.gun7y +200 && map.pl2x === this.gun7x  || map.pl2y === this.gun7y +300 && map.pl2x === this.gun7x  || map.pl2y === this.gun7y +400 && map.pl2x === this.gun7x ){
+  console.log("yes")
+  }
+
+ if (map.pl2y === this.gun8y && map.pl2x === this.gun8x || map.pl2y === this.gun8y +100 && map.pl2x === this.gun8x  || map.pl2y === this.gun8y +200 && map.pl2x === this.gun8x  || map.pl2y === this.gun8y +300 && map.pl2x === this.gun8x  || map.pl2y === this.gun8y +400 && map.pl2x === this.gun8x ){
+  console.log("yes")
+  }
 
 
 }
