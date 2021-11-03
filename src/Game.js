@@ -154,61 +154,61 @@ class Map {
 
         //Bomb 1 Player 1
 
-      if (this.x === this.firex +100 || this.x === this.firex +200 ){
+      if (this.x === this.firex +100 && this.y === this.firey || this.x === this.firex +200 && this.y === this.firey ){
 	     fire.collision1 ()
       }
-      if (this.x === this.firex -100 || this.x === this.firex -200  ){
+      if (this.x === this.firex -100 && this.y === this.firey || this.x === this.firex -200 && this.y === this.firey ){
         fire.collision1 ()
        }
-       if (this.y === this.firey - 100 || this.y === this.firey -200 ){
+       if (this.y === this.firey - 100 && this.x === this.firex || this.y === this.firey -200 && this.x === this.firex ){
         fire.collision1 ()
        }
-       if (this.y === this.firey + 100 || this.y === this.firey +200  ){
+       if (this.y === this.firey + 100 && this.x === this.firex || this.y === this.firey +200 && this.x === this.firex ){
         fire.collision1 ()
        }
 
         //Bomb 1 Player 2
 
-       if ( this.pl2x === this.firex +100 || this.pl2x === this.firex +200){
+       if ( this.pl2x === this.firex +100 && this.pl2y === this.firey || this.pl2x === this.firex +200 && this.pl2y === this.firey){
         fire.collision2 ()
        }
-       if ( this.pl2x === this.firex -100 || this.pl2x === this.firex -200 ){
+       if ( this.pl2x === this.firex -100 && this.pl2y === this.firey || this.pl2x === this.firex -200 && this.pl2y === this.firey){
          fire.collision2 ()
         }
-        if ( this.pl2y === this.firey - 100 || this.pl2y === this.firey -200 ){
+        if ( this.pl2y === this.firey - 100 && this.pl2x === this.firex || this.pl2y === this.firey -200 && this.pl2x === this.firex ){
          fire.collision2 ()
         }
-        if ( this.pl2y === this.firey + 100 || this.pl2y === this.firey +200 ){
+        if ( this.pl2y === this.firey + 100 && this.pl2x === this.firex || this.pl2y === this.firey +200 && this.pl2x === this.firex ){
          fire.collision2 ()
         }
 
         //Bomb 2 Player 1
 
-      if (this.x === this.fire2x +100 || this.x === this.fire2x +200 ){
+      if (this.x === this.fire2x +100 && this.y === this.fire2y || this.x === this.fire2x +200 && this.y === this.fire2y ){
         fire2.collision1 ()
        }
-       if (this.x === this.fire2x -100 || this.x === this.fire2x -200  ){
+       if (this.x === this.fire2x -100 && this.y === this.fire2y || this.x === this.fire2x -200 && this.y === this.fire2y ){
          fire2.collision1 ()
         }
-        if (this.y === this.fire2y - 100 || this.y === this.fire2y -200 ){
+        if (this.y === this.fire2y - 100 && this.x === this.fire2x || this.y === this.fire2y -200 && this.x === this.fire2x ){
          fire2.collision1 ()
         }
-        if (this.y === this.fire2y + 100 || this.y === this.fire2y +200  ){
+        if (this.y === this.fire2y + 100 && this.x === this.fire2x || this.y === this.fire2y +200 && this.x === this.fire2x ){
          fire2.collision1 ()
         }
  
          //Bomb 2 Player 2
  
-        if ( this.pl2x === this.fire2x +100 || this.pl2x === this.fire2x +200){
+        if ( this.pl2x === this.fire2x +100 && this.pl2y === this.fire2y || this.pl2x === this.fire2x +200 && this.pl2y === this.fire2y){
          fire2.collision2 ()
         }
-        if ( this.pl2x === this.fire2x -100 || this.pl2x === this.fire2x -200 ){
+        if ( this.pl2x === this.fire2x -100 && this.pl2y === this.fire2y || this.pl2x === this.fire2x -200 && this.pl2y === this.fire2y ){
           fire2.collision2 ()
          }
-         if ( this.pl2y === this.fire2y - 100 || this.pl2y === this.fire2y -200 ){
+         if ( this.pl2y === this.fire2y - 100 && this.pl2x === this.fire2x || this.pl2y === this.fire2y -200 && this.pl2x === this.fire2x ){
           fire2.collision2 ()
          }
-         if ( this.pl2y === this.fire2y + 100 || this.pl2y === this.fire2y +200 ){
+         if ( this.pl2y === this.fire2y + 100 && this.pl2x === this.fire2x || this.pl2y === this.fire2y +200 && this.pl2x === this.fire2x ){
           fire2.collision2 ()
          }
  
@@ -457,30 +457,30 @@ class Gun {
 
   constructor(){
 
-    this.gun1x = 1000 ;
-    this.gun1y = 500 ;
+    this.gun1x = 2000 ;
+    this.gun1y = 2000 ;
 
-    this.gun2x = 1000 ;
-    this.gun2y = 700 ; 
+    this.gun2x = 2000 ;
+    this.gun2y = 2000 ; 
     
-    this.gun3x = 900 ;
-    this.gun3y = 800 ; 
+    this.gun3x = 2000 ;
+    this.gun3y = 2000 ; 
 
-    this.gun4x = 500 ;
-    this.gun4y = 800 ; 
+    this.gun4x = 2000 ;
+    this.gun4y = 2000 ; 
 
-    this.gun5x = 100 ;
-    this.gun5y = 700 ;
+    this.gun5x = 2000 ;
+    this.gun5y = 2000 ;
 
 
-    this.gun6x = 100 ;
-    this.gun6y = 500 ;
+    this.gun6x = 2000 ;
+    this.gun6y = 2000 ;
 
-    this.gun7x = 500 ;
-    this.gun7y = 100 ;
+    this.gun7x = 2000 ;
+    this.gun7y = 2000 ;
 
-    this.gun8x = 900 ;
-    this.gun8y = 100 ;
+    this.gun8x = 2000 ;
+    this.gun8y = 2000 ;
 
     this.number1 = 10;
     
@@ -494,10 +494,10 @@ draw (){
 
   
 
-  if (frameCount % 200 === 0 ){
+  if (frameCount % 20 === 0 ){
 
     this.number = Math.floor(Math.random() * (8 - 0) + 0);
-    console.log(this.number)
+  
     
   }
 
@@ -515,36 +515,70 @@ draw (){
   image(this.gunDown, 500 , 1200,  100, 100)
 
   if (this.number === 0){
-  image(this.gunFireR, this.gun1x , this.gun1y , 400, 100);
+    this.gun1x = 900 ;
+    this.gun1y = 500 ;
+    image(this.gunFireR, this.gun1x , this.gun1y , 500, 100);
+  
   }
 
   if (this.number === 1){
-  image(this.gunFireR, this.gun2x , this.gun2y , 400, 100);
+    this.gun2x = 900 ;
+    this.gun2y = 700 ;
+    image(this.gunFireR, this.gun2x , this.gun2y , 500, 100);
+  
   }
 
   if (this.number === 2){
-  image(this.gunFireD, this.gun3x , this.gun3y , 100, 400);
+    this.gun3x = 900 ;
+    this.gun3y = 700 ;
+    image(this.gunFireD, this.gun3x , this.gun3y , 100, 500);
+  
   }
 
   if (this.number === 3){
-  image(this.gunFireD, this.gun4x , this.gun4y , 100, 400);
+    this.gun4x = 500 ;
+    this.gun4y = 700 ;
+    image(this.gunFireD, this.gun4x , this.gun4y , 100, 500);
   }
 
   if (this.number === 4){
-  image(this.gunFireL, this.gun5x , this.gun5y , 400, 100);
+    this.gun5x = 100 ;
+    this.gun5y = 700 ;
+    image(this.gunFireL, this.gun5x , this.gun5y , 500, 100);
+  
   }
 
   if (this.number === 5){
-  image(this.gunFireL, this.gun6x , this.gun6y , 400, 100);
+    this.gun6x = 100 ;
+    this.gun6y = 500 ;
+    image(this.gunFireL, this.gun6x , this.gun6y , 500, 100);
   }
 
   if (this.number === 6){
-  image(this.gunFireT, this.gun7x , this.gun7y , 100, 400);
+    this.gun7x = 500 ;
+    this.gun7y = 100 ;
+    image(this.gunFireT, this.gun7x , this.gun7y , 100, 500);
   }
 
   if (this.number === 7){
-  image(this.gunFireT, this.gun8x , this.gun8y , 100, 400);
+    this.gun8x = 900 ;
+    this.gun8y = 100 ;
+    image(this.gunFireT, this.gun8x , this.gun8y , 100, 500);
   }
+
+
+ // Collision
+
+ let d1 = dist(500,100, map.height, map.width)
+
+ 
+
+ if (d1 = 0){
+   console.log('yes')
+ }
+//  console.log(d1)
+
+
 }
 
 }
