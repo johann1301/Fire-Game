@@ -33,6 +33,7 @@ class Map {
       this.fire2L = loadImage('../images/fire-left.png')
       this.fire2U = loadImage('../images/fire-up.png')
       this.fire2D = loadImage('../images/fire-down.png')
+      
       }
    
     constructor(){
@@ -88,6 +89,8 @@ class Map {
           image(this.image6, 0 , 1200, this.width, this.height)
           image(this.image7, 1400 , 0, this.width, this.height)
           image(this.image8, 1400 , 1200, this.width, this.height)
+
+          
 
         //   Background
 
@@ -430,6 +433,119 @@ class Fire2 {
 
   }
 
+
+}
+
+class Gun {
+
+  
+
+  
+
+  preload(){
+
+    this.gunRight = loadImage('../images/gun-right.png')
+    this.gunLeft = loadImage('../images/gun-left.png')
+    this.gunTop = loadImage('../images/gun-top.png')
+    this.gunDown = loadImage('../images/gun-down.png')
+    this.gunFireR = loadImage('../images/gun-fire-right.png')
+    this.gunFireL = loadImage('../images/gun-fire-left.png')
+    this.gunFireT = loadImage('../images/gun-fire-top.png')
+    this.gunFireD = loadImage('../images/gun-fire-down.png')
+
+  }
+
+  constructor(){
+
+    this.gun1x = 1000 ;
+    this.gun1y = 500 ;
+
+    this.gun2x = 1000 ;
+    this.gun2y = 700 ; 
+    
+    this.gun3x = 900 ;
+    this.gun3y = 800 ; 
+
+    this.gun4x = 500 ;
+    this.gun4y = 800 ; 
+
+    this.gun5x = 100 ;
+    this.gun5y = 700 ;
+
+
+    this.gun6x = 100 ;
+    this.gun6y = 500 ;
+
+    this.gun7x = 500 ;
+    this.gun7y = 100 ;
+
+    this.gun8x = 900 ;
+    this.gun8y = 100 ;
+
+    this.number1 = 10;
+    
+
+
+  }
+
+
+
+draw (){
+
+  
+
+  if (frameCount % 200 === 0 ){
+
+    this.number = Math.floor(Math.random() * (8 - 0) + 0);
+    console.log(this.number)
+    
+  }
+
+
+
+  //Guns
+
+  image(this.gunRight, 1400 , 500, 100, 100)
+  image(this.gunRight, 1400 , 700, 100, 100)
+  image(this.gunLeft, 0 , 500,  100, 100)
+  image(this.gunLeft, 0 , 700,  100, 100)
+  image(this.gunTop, 900 , 0,  100, 100)
+  image(this.gunTop, 500 , 0,  100, 100)
+  image(this.gunDown, 900 , 1200,  100, 100)
+  image(this.gunDown, 500 , 1200,  100, 100)
+
+  if (this.number === 0){
+  image(this.gunFireR, this.gun1x , this.gun1y , 400, 100);
+  }
+
+  if (this.number === 1){
+  image(this.gunFireR, this.gun2x , this.gun2y , 400, 100);
+  }
+
+  if (this.number === 2){
+  image(this.gunFireD, this.gun3x , this.gun3y , 100, 400);
+  }
+
+  if (this.number === 3){
+  image(this.gunFireD, this.gun4x , this.gun4y , 100, 400);
+  }
+
+  if (this.number === 4){
+  image(this.gunFireL, this.gun5x , this.gun5y , 400, 100);
+  }
+
+  if (this.number === 5){
+  image(this.gunFireL, this.gun6x , this.gun6y , 400, 100);
+  }
+
+  if (this.number === 6){
+  image(this.gunFireT, this.gun7x , this.gun7y , 100, 400);
+  }
+
+  if (this.number === 7){
+  image(this.gunFireT, this.gun8x , this.gun8y , 100, 400);
+  }
+}
 
 }
 

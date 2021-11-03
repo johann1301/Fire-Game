@@ -6,6 +6,7 @@
 const map = new Map ();
 const fire = new Fire ();
 const fire2 = new Fire2 ();
+const gun = new Gun ();
 
 
 
@@ -17,12 +18,13 @@ const fire2 = new Fire2 ();
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
   canvas.parent("canvas");
-
+  
 }
 
 
 function preload(){
     map.preload();
+	gun.preload();
 	
 	
     
@@ -32,6 +34,7 @@ function preload(){
 
 function draw() {
   map.draw();
+  gun.draw();
   
   
   
