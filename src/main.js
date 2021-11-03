@@ -5,7 +5,7 @@
 
 const map = new Map ();
 const fire = new Fire ();
-// const bomb2 = new 
+const fire2 = new Fire2 ();
 
 
 

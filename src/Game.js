@@ -57,7 +57,8 @@ class Map {
       this.fire2x = 2000;
       this.fire2y = 2000;
       this.collision = false;
-      this.life = 3;
+      this.life1 = 3;
+      this.life2 = 3;
       
     }
     draw (){
@@ -65,8 +66,8 @@ class Map {
             clear()
 
           
-            // console.log(this.life)  
-            
+            // console.log(this.life1)  
+            // console.log(this.life2)
 
         // Border
   
@@ -127,6 +128,13 @@ class Map {
 
       //Fire
  
+      this.fires.forEach(function(fire){
+        fire.draw()
+      
+      })
+
+      //Fire2
+ 
       this.fires2.forEach(function(fire2){
         fire2.draw()
       
@@ -141,18 +149,65 @@ class Map {
        
         // Collision
 
-      if (map.x === map.firex +100 || map.x === map.firex +200 ){
-	     fire.collision ()
+        //Bomb 1 Player 1
+
+      if (this.x === this.firex +100 || this.x === this.firex +200 ){
+	     fire.collision1 ()
       }
-      if (map.x === map.firex -100 || map.x === map.firex -200 ){
-        fire.collision ()
+      if (this.x === this.firex -100 || this.x === this.firex -200  ){
+        fire.collision1 ()
        }
-       if (map.y === map.firey - 100 || map.y === map.firey -200 ){
-        fire.collision ()
+       if (this.y === this.firey - 100 || this.y === this.firey -200 ){
+        fire.collision1 ()
        }
-       if (map.y === map.firey + 100 || map.y === map.firey +200 ){
-        fire.collision ()
+       if (this.y === this.firey + 100 || this.y === this.firey +200  ){
+        fire.collision1 ()
        }
+
+        //Bomb 1 Player 2
+
+       if ( this.pl2x === this.firex +100 || this.pl2x === this.firex +200){
+        fire.collision2 ()
+       }
+       if ( this.pl2x === this.firex -100 || this.pl2x === this.firex -200 ){
+         fire.collision2 ()
+        }
+        if ( this.pl2y === this.firey - 100 || this.pl2y === this.firey -200 ){
+         fire.collision2 ()
+        }
+        if ( this.pl2y === this.firey + 100 || this.pl2y === this.firey +200 ){
+         fire.collision2 ()
+        }
+
+        //Bomb 2 Player 1
+
+      if (this.x === this.fire2x +100 || this.x === this.fire2x +200 ){
+        fire2.collision1 ()
+       }
+       if (this.x === this.fire2x -100 || this.x === this.fire2x -200  ){
+         fire2.collision1 ()
+        }
+        if (this.y === this.fire2y - 100 || this.y === this.fire2y -200 ){
+         fire2.collision1 ()
+        }
+        if (this.y === this.fire2y + 100 || this.y === this.fire2y +200  ){
+         fire2.collision1 ()
+        }
+ 
+         //Bomb 2 Player 2
+ 
+        if ( this.pl2x === this.fire2x +100 || this.pl2x === this.fire2x +200){
+         fire2.collision2 ()
+        }
+        if ( this.pl2x === this.fire2x -100 || this.pl2x === this.fire2x -200 ){
+          fire2.collision2 ()
+         }
+         if ( this.pl2y === this.fire2y - 100 || this.pl2y === this.fire2y -200 ){
+          fire2.collision2 ()
+         }
+         if ( this.pl2y === this.fire2y + 100 || this.pl2y === this.fire2y +200 ){
+          fire2.collision2 ()
+         }
  
     }
 
@@ -309,13 +364,23 @@ class Fire {
     }
   }
 
-  collision (){
+  collision1 (){
 
     map.fires.shift();
     // map.bombs.shift();
     map.firex = 2000;
     map.firey = 2000;
-    map.life -= 1;
+    map.life1 -= 1;
+
+  }
+
+  collision2 (){
+
+    map.fires.shift();
+    // map.bombs.shift();
+    map.firex = 2000;
+    map.firey = 2000;
+    map.life2 -= 1;
 
   }
 
@@ -341,17 +406,27 @@ class Fire2 {
       image(map.fire2U, map.bomb2x , map.bomb2y -200, 100, 200)
     }
     if (map.bomb2y<=1000 && map.bomb2x !== 200 && map.bomb2x !== 400 && map.bomb2x !== 600 && map.bomb2x !== 800 && map.bomb2x !== 1000 && map.bomb2x !== 1200){
-      image(map.fire2D, map.bomb2x , map.bomb2by +100, 100, 200)
+      image(map.fire2D, map.bomb2x , map.bomb2y +100, 100, 200)
     }
   }
 
-  collision (){
+  collision1 (){
 
-    map.fires.shift();
+    map.fires2.shift();
     // map.bombs.shift();
-    map.firex = 2000;
-    map.firey = 2000;
-    map.life -= 1;
+    map.fire2x = 2000;
+    map.fire2y = 2000;
+    map.life1 -= 1;
+
+  }
+
+  collision2 (){
+
+    map.fires2.shift();
+    // map.bombs.shift();
+    map.fire2x = 2000;
+    map.fire2y = 2000;
+    map.life2 -= 1;
 
   }
 
