@@ -4,6 +4,7 @@
 
 
 const map = new Map ();
+const fire = new Fire ();
 
 
 
@@ -30,7 +31,7 @@ function preload(){
 
 function draw() {
   map.draw();
-
+  
   
   
   
@@ -59,10 +60,12 @@ function keyPressed() {
 	}
 	if (keyCode === 188 ){
 		map.addBomb();
-		setTimeout(() => {  map.explosion() }, 1000);
+		map.explosion()
 		
 	}
 }
+
+
 
 
 

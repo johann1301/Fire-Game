@@ -42,14 +42,17 @@ class Map {
       this.bomby = 100;
       this.firex = 2000;
       this.firey = 2000;
+      this.collision = false;
+      this.life = 3;
       
     }
     draw (){
         
             clear()
 
-      
-
+          
+            // console.log(this.life)  
+            
 
         // Border
   
@@ -113,8 +116,23 @@ class Map {
   
       image(this.character, this.x, this.y, this.width, this.height)
        
+       
+        // Collision
 
-      
+      if (map.x === map.firex +100 || map.x === map.firex +200 ){
+	     fire.collision ()
+      }
+      if (map.x === map.firex -100 || map.x === map.firex -200 ){
+        fire.collision ()
+       }
+       if (map.y === map.firey - 100 || map.y === map.firey -200 ){
+        fire.collision ()
+       }
+       if (map.y === map.firey + 100 || map.y === map.firey +200 ){
+        fire.collision ()
+       }
+
+        
        
   
      
@@ -153,15 +171,18 @@ class Map {
 
       explosion (){
         if (this.fires.length < 1){
-        this.fires.push(new Fire(this.fireD, this.fireL, this.fireR, this.fireU))
-        setTimeout(() => {  this.fires.shift() }, 1500);
-        this.firex = this.bombx;
-        this.firey = this.bomby;
-        setTimeout(() => {  this.firex = 2000 }, 1500);
-        setTimeout(() => {  this.firey = 2000 }, 1500);
+          setTimeout(() => { this.fires.push(new Fire(this.fireD, this.fireL, this.fireR, this.fireU))  }, 1000);
+        setTimeout(() => {  this.fires.shift() }, 2500);
+        setTimeout(() => {  this.firex = this.bombx; }, 1000);
+        setTimeout(() => {  this.firey = this.bomby; }, 1000)
+        setTimeout(() => {  this.firex = 2000 }, 2500);
+        setTimeout(() => {  this.firey = 2000 }, 2500);
+        
         }
 
       }
+     
+      
       
       
 }
@@ -183,21 +204,12 @@ class Bomb {
 
 class Fire {
   
-  collision () {
-    // const rightFireX = map.firex
-    // const rightFireY = map.firey
-    // console.log(rightFireX)
-    // var d = dist(rightFireX, rightFireY, map.x, map.y)
-    // if (d = 0){
-      
-    // }
-    
-  }
 
   draw (){
+
+    
+
     if (map.bombx<=1200 && map.bomby !== 200 && map.bomby !== 400 && map.bomby !== 600 && map.bomby !== 800 && map.bomby !== 1000){
- 
-      
       image(map.fireR, map.bombx + 100, map.bomby, 200, 100)
       }
     if (map.bombx >=200 && map.bomby !== 200 && map.bomby !== 400 && map.bomby !== 600 && map.bomby !== 800 && map.bomby !== 1000){
@@ -210,6 +222,18 @@ class Fire {
       image(map.fireD, map.bombx , map.bomby +100, 100, 200)
     }
   }
+
+  collision (){
+
+    map.fires.shift();
+    // map.bombs.shift();
+    map.firex = 2000;
+    map.firey = 2000;
+    map.life -= 1;
+
+  }
+
+
 }
 
 
