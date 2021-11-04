@@ -386,7 +386,7 @@ class Map {
         setTimeout(() => {  this.fire2y = this.bomb2y; }, 1000)
         setTimeout(() => {  this.fire2x = 2000 }, 2500);
         setTimeout(() => {  this.fire2y = 2000 }, 2500);
-        setTimeout(() => {  this.burn.play() }, 2500);
+        
         
         }
 
