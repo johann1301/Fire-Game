@@ -26,7 +26,7 @@ function setup() {
 function preload(){
 
 
-	ambient = loadSound ('sounds/background.mp3');
+	ambient = loadSound ('sounds/fireSong.mp3');
     home.preload();
     map.preload();
 	fire.preload();
