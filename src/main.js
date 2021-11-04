@@ -18,8 +18,9 @@ function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
   canvas.parent("canvas");
   ambient.loop();
-  sounds = true
-  map.burn.setVolume(0.1)
+  sounds = true;
+  map.burn.setVolume(0.1);
+  
 }
  
  
@@ -37,7 +38,6 @@ function preload(){
 }
 
 function draw() {
-	console.log(sounds)
 
 	home.draw();
 
@@ -119,6 +119,11 @@ function keyPressed() {
 			ambient.loop()
 		}
 		
+	}
+
+	if (keyCode === 82){
+		window.location.reload();
+	 
 	}
 	
 } 

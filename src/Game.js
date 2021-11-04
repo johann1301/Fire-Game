@@ -36,16 +36,11 @@ class Home{
 	if(map.life1 === 0){
 		 this.site = 2;
 		image(this.winPlayer2, 0 , 0 , 1500 ,1300);
-		image(this.homeButton, 500 , 1100 , 100 ,100);
-		image(this.h, 520 , 1220 , 60 ,45);
-		image(this.restartButton, 900 , 1100 , 100 ,100);
-		image(this.r, 920 , 1220 , 60 ,45);
+		image(this.restartButton, 700 , 1100 , 100 ,100);
+		image(this.r, 720 , 1220 , 60 ,45);
 
   
-		if (keyCode === 72){
 		
-			this.site = 3
-		}
 		if (keyCode === 82){
 			this.site = 1
 		}
@@ -56,16 +51,11 @@ class Home{
 	if(map.life2 === 0){
 		this.site = 2;
 		image(this.winPlayer1, 0 , 0 , 1500 ,1300);
-		image(this.homeButton, 500 , 1100 , 100 ,100);
-		image(this.h, 520 , 1220 , 60 ,45);
-		image(this.restartButton, 900 , 1100 , 100 ,100);
-		image(this.r, 920 , 1220 , 60 ,45);
+		image(this.restartButton, 700 , 1100 , 100 ,100);
+		image(this.r, 7200 , 1220 , 60 ,45);
 
   
-		if (keyCode === 72){
 		
-			this.site = 3
-		}
 		if (keyCode === 82){
 			this.site = 1
 		}
