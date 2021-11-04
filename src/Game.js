@@ -9,11 +9,8 @@ class Home{
    this.home = loadImage('images/home.png')
 	 this.winPlayer2 = loadImage('images/win-player2.png')
 	 this.winPlayer1 = loadImage('images/win-player1.png')
-	 this.homeButton = loadImage('images/Homebutton.png')
 	 this.restartButton = loadImage('images/Restartbutton.png')
-	 this.h = loadImage('images/H.png')
 	 this.r = loadImage('images/R.png')
-	 this.m = loadImage('images/M.png')
    
 
  }
@@ -52,7 +49,7 @@ class Home{
 		this.site = 2;
 		image(this.winPlayer1, 0 , 0 , 1500 ,1300);
 		image(this.restartButton, 700 , 1100 , 100 ,100);
-		image(this.r, 7200 , 1220 , 60 ,45);
+		image(this.r, 720 , 1220 , 60 ,45);
 
   
 		
