@@ -26,6 +26,8 @@ function setup() {
  
 function preload(){
 
+	this.song = loadSound('../sounds/fireSong.mp3')
+
 	this.home = loadImage('../images/home.png')
 	this.winPlayer2 = loadImage('../images/win-player2.png')
 	this.winPlayer1 = loadImage('../images/win-player1.png')

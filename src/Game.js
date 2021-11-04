@@ -10,6 +10,7 @@ class Map {
 
  
     preload() {
+
       this.image9 = loadImage('../images/land_6.png')
       this.image = loadImage('../images/down.png')
       this.image2 = loadImage('../images/top.png')
