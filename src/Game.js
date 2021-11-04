@@ -1,6 +1,83 @@
 
 
+class Home{
 
+ preload (){
+
+  
+
+   this.home = loadImage('images/home.png')
+	 this.winPlayer2 = loadImage('images/win-player2.png')
+	 this.winPlayer1 = loadImage('images/win-player1.png')
+	 this.homeButton = loadImage('images/Homebutton.png')
+	 this.restartButton = loadImage('images/Restartbutton.png')
+	 this.h = loadImage('images/H.png')
+	 this.r = loadImage('images/R.png')
+	 this.m = loadImage('images/M.png')
+   
+
+ }
+
+ constructor(){
+
+  this.site = 3;
+
+ }
+
+ draw(){
+
+
+  
+
+	if (this.site === 3){
+		image(this.home, 0 , 0 , 1500 ,1300);	
+	}
+
+	if(map.life1 === 0){
+		 this.site = 2;
+		image(this.winPlayer2, 0 , 0 , 1500 ,1300);
+		image(this.homeButton, 500 , 1100 , 100 ,100);
+		image(this.h, 520 , 1220 , 60 ,45);
+		image(this.restartButton, 900 , 1100 , 100 ,100);
+		image(this.r, 920 , 1220 , 60 ,45);
+
+  
+		if (keyCode === 72){
+		
+			this.site = 3
+		}
+		if (keyCode === 82){
+			this.site = 1
+		}
+  }
+
+	
+
+	if(map.life2 === 0){
+		this.site = 2;
+		image(this.winPlayer1, 0 , 0 , 1500 ,1300);
+		image(this.homeButton, 500 , 1100 , 100 ,100);
+		image(this.h, 520 , 1220 , 60 ,45);
+		image(this.restartButton, 900 , 1100 , 100 ,100);
+		image(this.r, 920 , 1220 , 60 ,45);
+
+  
+		if (keyCode === 72){
+		
+			this.site = 3
+		}
+		if (keyCode === 82){
+			this.site = 1
+		}
+
+	}
+
+ }
+
+  
+
+  
+}
 
 
 
@@ -11,29 +88,30 @@ class Map {
  
     preload() {
 
-      this.image9 = loadImage('../images/land_6.png')
-      this.image = loadImage('../images/down.png')
-      this.image2 = loadImage('../images/top.png')
-      this.image3 = loadImage('../images/left.png')
-      this.image4 = loadImage('../images/right.png')
-      this.image5 = loadImage('../images/left-top-corner – 1.png')
-      this.image6 = loadImage('../images/left-down-corner – 1.png')
-      this.image7 = loadImage('../images/right-top-corner – 1.png')
-      this.image8 = loadImage('../images/right-down-corner – 1.png')
-      this.background = loadImage('../images/Background.png')
-      this.stone = loadImage('../images/stone.png')
-      this.player1 = loadImage('../images/player1.png')
-      this.player2 = loadImage('../images/player2.png')
-      this.bombImage = loadImage('../images/bomb.png')
-      this.bombImage2 = loadImage('../images/bomb2.png')
-      this.fireR = loadImage('../images/fire-right.png')
-      this.fireL = loadImage('../images/fire-left.png')
-      this.fireU = loadImage('../images/fire-up.png')
-      this.fireD = loadImage('../images/fire-down.png')
-      this.fire2R = loadImage('../images/fire2-right.png')
-      this.fire2L = loadImage('../images/fire2-left.png')
-      this.fire2U = loadImage('../images/fire2-up.png')
-      this.fire2D = loadImage('../images/fire2-down.png')
+      this.image9 = loadImage('images/land_6.png')
+      this.image = loadImage('images/down.png')
+      this.image2 = loadImage('images/top.png')
+      this.image3 = loadImage('images/left.png')
+      this.image4 = loadImage('images/right.png')
+      this.image5 = loadImage('images/left-top-corner – 1.png')
+      this.image6 = loadImage('images/left-down-corner – 1.png')
+      this.image7 = loadImage('images/right-top-corner – 1.png')
+      this.image8 = loadImage('images/right-down-corner – 1.png')
+      this.background = loadImage('images/Background.png')
+      this.stone = loadImage('images/stone.png')
+      this.player1 = loadImage('images/player1.png')
+      this.player2 = loadImage('images/player2.png')
+      this.bombImage = loadImage('images/bomb.png')
+      this.bombImage2 = loadImage('images/bomb2.png')
+      this.fireR = loadImage('images/fire-right.png')
+      this.fireL = loadImage('images/fire-left.png')
+      this.fireU = loadImage('images/fire-up.png')
+      this.fireD = loadImage('images/fire-down.png')
+      this.fire2R = loadImage('images/fire2-right.png')
+      this.fire2L = loadImage('images/fire2-left.png')
+      this.fire2U = loadImage('images/fire2-up.png')
+      this.fire2D = loadImage('images/fire2-down.png')
+      this.burn = loadSound ('sounds/Flames.mp3');
       
       }
    
@@ -115,6 +193,8 @@ class Map {
           for (let i=200; i<= 1300; i = i +200){
             image(this.stone, i, 1000, this.width, this.height) 
           }
+
+          
 
           //Bombs
  
@@ -220,26 +300,26 @@ class Map {
     //Player 1
     moveRight() {
       if (this.x<=1200 && this.y !== 200 && this.y !== 400 && this.y !== 600 && this.y !== 800 && this.y !== 1000){
-        this.player1 = loadImage('../images/player1-right.png')
+        this.player1 = loadImage('images/player1-right.png')
         this.x += 100
       }
           
       }
       moveLeft() {
       if (this.x>=200 && this.y !== 200 && this.y !== 400 && this.y !== 600 && this.y !== 800 && this.y !== 1000){
-        this.player1 = loadImage('../images/player1-left.png')
+        this.player1 = loadImage('images/player1-left.png')
           this.x -= 100
       }
       }
       moveUp() {
       if (this.y>=200 && this.x !== 200 && this.x !== 400 && this.x !== 600 && this.x !== 800 && this.x !== 1000 && this.x !== 1200){
-        this.player1 = loadImage('../images/player1-up.png')  
+        this.player1 = loadImage('images/player1-up.png')  
         this.y -= 100
       }
       }
       moveDown() {
       if (this.y<=1000 && this.x !== 200 && this.x !== 400 && this.x !== 600 && this.x !== 800 && this.x !== 1000 && this.x !== 1200){
-        this.player1 = loadImage('../images/player1.png')  
+        this.player1 = loadImage('images/player1.png')  
         this.y += 100
       }
       }
@@ -250,6 +330,8 @@ class Map {
         setTimeout(() => {  this.bombs.shift() }, 2500);
         this.bombx = this.x
         this.bomby = this.y 
+        setTimeout(() => {  this.burn.play() }, 1000);
+        setTimeout(() => {  this.burn.stop() }, 2500);
         } 
         
       } 
@@ -263,6 +345,7 @@ class Map {
         setTimeout(() => {  this.firex = 2000 }, 2500);
         setTimeout(() => {  this.firey = 2000 }, 2500);
         
+        
         }
 
       }
@@ -272,26 +355,26 @@ class Map {
        //Player 2
     moveRight2() {
       if (this.pl2x<=1200 && this.pl2y !== 200 && this.pl2y !== 400 && this.pl2y !== 600 && this.pl2y !== 800 && this.pl2y !== 1000){
-        this.player2 = loadImage('../images/player2-right.png')
+        this.player2 = loadImage('images/player2-right.png')
         this.pl2x += 100
       }
           
       }
       moveLeft2() {
       if (this.pl2x>=200 && this.pl2y !== 200 && this.pl2y !== 400 && this.pl2y !== 600 && this.pl2y !== 800 && this.pl2y !== 1000){
-        this.player2 = loadImage('../images/player2-left.png')  
+        this.player2 = loadImage('images/player2-left.png')  
         this.pl2x -= 100
       }
       }
       moveUp2() {
       if (this.pl2y>=200 && this.pl2x !== 200 && this.pl2x !== 400 && this.pl2x !== 600 && this.pl2x !== 800 && this.pl2x !== 1000 && this.pl2x !== 1200){
-        this.player2 = loadImage('../images/player2-up.png')  
+        this.player2 = loadImage('images/player2-up.png')  
         this.pl2y -= 100
       }
       }
       moveDown2() {
       if (this.pl2y<=1000 && this.pl2x !== 200 && this.pl2x !== 400 && this.pl2x !== 600 && this.pl2x !== 800 && this.pl2x !== 1000 && this.pl2x !== 1200){
-        this.player2 = loadImage('../images/player2.png')  
+        this.player2 = loadImage('images/player2.png')  
         this.pl2y += 100
       }
       }
@@ -302,6 +385,8 @@ class Map {
         setTimeout(() => {  this.bombs2.shift() }, 2500);
         this.bomb2x = this.pl2x
         this.bomb2y = this.pl2y 
+        setTimeout(() => {  this.burn.play() }, 1000);
+        setTimeout(() => {  this.burn.stop() }, 2500);
         } 
         
       } 
@@ -314,6 +399,7 @@ class Map {
         setTimeout(() => {  this.fire2y = this.bomb2y; }, 1000)
         setTimeout(() => {  this.fire2x = 2000 }, 2500);
         setTimeout(() => {  this.fire2y = 2000 }, 2500);
+        setTimeout(() => {  this.burn.play() }, 2500);
         
         }
 
@@ -356,6 +442,11 @@ class Bomb2 {
 }
 
 class Fire {
+
+  preload (){
+
+    this.life = loadSound ('sounds/loosingLife.mp3');
+  }
   
 
   draw (){
@@ -383,6 +474,7 @@ class Fire {
     map.firex = 2000;
     map.firey = 2000;
     map.life1 -= 1;
+    this.life.play();
 
   }
 
@@ -393,6 +485,7 @@ class Fire {
     map.firex = 2000;
     map.firey = 2000;
     map.life2 -= 1;
+    this.life.play();
 
   }
 
@@ -402,6 +495,11 @@ class Fire {
 
 
 class Fire2 {
+
+  preload (){
+
+    this.life = loadSound ('sounds/loosingLife.mp3');
+  }
   
 
   draw (){
@@ -429,6 +527,7 @@ class Fire2 {
     map.fire2x = 2000;
     map.fire2y = 2000;
     map.life1 -= 1;
+    this.life.play();
 
   }
 
@@ -439,6 +538,7 @@ class Fire2 {
     map.fire2x = 2000;
     map.fire2y = 2000;
     map.life2 -= 1;
+    this.life.play();
 
   }
 
@@ -453,14 +553,15 @@ class Gun {
 
   preload(){
 
-    this.gunRight = loadImage('../images/gun-right.png')
-    this.gunLeft = loadImage('../images/gun-left.png')
-    this.gunTop = loadImage('../images/gun-top.png')
-    this.gunDown = loadImage('../images/gun-down.png')
-    this.gunFireR = loadImage('../images/gun-fire-right.png')
-    this.gunFireL = loadImage('../images/gun-fire-left.png')
-    this.gunFireT = loadImage('../images/gun-fire-top.png')
-    this.gunFireD = loadImage('../images/gun-fire-down.png')
+    this.gunRight = loadImage('images/gun-right.png')
+    this.gunLeft = loadImage('images/gun-left.png')
+    this.gunTop = loadImage('images/gun-top.png')
+    this.gunDown = loadImage('images/gun-down.png')
+    this.gunFireR = loadImage('images/gun-fire-right.png')
+    this.gunFireL = loadImage('images/gun-fire-left.png')
+    this.gunFireT = loadImage('images/gun-fire-top.png')
+    this.gunFireD = loadImage('images/gun-fire-down.png')
+    this.life = loadSound ('sounds/loosingLife.mp3');
 
   }
 
@@ -528,6 +629,9 @@ draw (){
     this.gun1y = 500 ;
     image(this.gunFireR, this.gun1x , this.gun1y , 500, 100);
   
+  } else{
+    this.gun1x = 2000 ;
+    this.gun1y = 2000 ;
   }
 
   if (this.number === 1){
@@ -535,6 +639,9 @@ draw (){
     this.gun2y = 700 ;
     image(this.gunFireR, this.gun2x , this.gun2y , 500, 100);
   
+  } else{
+    this.gun2x = 2000 ;
+    this.gun2y = 2000 ;
   }
 
   if (this.number === 2){
@@ -542,12 +649,18 @@ draw (){
     this.gun3y = 700 ;
     image(this.gunFireD, this.gun3x , this.gun3y , 100, 500);
   
+  } else{
+    this.gun3x = 2000 ;
+    this.gun3y = 2000 ;
   }
 
   if (this.number === 3){
     this.gun4x = 500 ;
     this.gun4y = 700 ;
     image(this.gunFireD, this.gun4x , this.gun4y , 100, 500);
+  } else{
+    this.gun4x = 2000 ;
+    this.gun4y = 2000 ;
   }
 
   if (this.number === 4){
@@ -555,24 +668,37 @@ draw (){
     this.gun5y = 700 ;
     image(this.gunFireL, this.gun5x , this.gun5y , 500, 100);
   
+  } else{
+    this.gun5x = 2000 ;
+    this.gun5y = 2000 ;
   }
 
   if (this.number === 5){
     this.gun6x = 100 ;
     this.gun6y = 500 ;
     image(this.gunFireL, this.gun6x , this.gun6y , 500, 100);
+  } else{
+    this.gun6x = 2000 ;
+    this.gun6y = 2000 ;
   }
 
   if (this.number === 6){
     this.gun7x = 500 ;
     this.gun7y = 100 ;
     image(this.gunFireT, this.gun7x , this.gun7y , 100, 500);
+  } else{
+    this.gun7x = 2000 ;
+    this.gun7y = 2000 ;
   }
+  
 
   if (this.number === 7){
     this.gun8x = 900 ;
     this.gun8y = 100 ;
     image(this.gunFireT, this.gun8x , this.gun8y , 100, 500);
+  } else{
+    this.gun8x = 2000 ;
+    this.gun8y = 2000 ;
   }
   
 
@@ -585,6 +711,7 @@ draw (){
    this.gun1x = 2000 ;
    this.gun1y = 2000 ;
    map.life1 -= 1;
+   this.life.play();
  }
 
  if (map.x === this.gun2x && map.y === this.gun2y || map.x === this.gun2x +100 && map.y === this.gun2y  || map.x === this.gun2x +200 && map.y === this.gun2y  || map.x === this.gun2x +300 && map.y === this.gun2y  || map.x === this.gun2x +400 && map.y === this.gun2y ){
@@ -592,6 +719,7 @@ draw (){
    this.gun2x = 2000 ;
    this.gun2y = 2000 ;
    map.life1 -= 1;
+   this.life.play();
   }
 
  if (map.y === this.gun3y && map.x === this.gun3x || map.y === this.gun3y +100 && map.x === this.gun3x  || map.y === this.gun3y +200 && map.x === this.gun3x  || map.y === this.gun3y +300 && map.x === this.gun3x  || map.y === this.gun3y +400 && map.x === this.gun3x ){
@@ -599,6 +727,7 @@ draw (){
    this.gun3x = 2000 ;
    this.gun3y = 2000 ; 
    map.life1 -= 1;
+   this.life.play();
   }
 
  if (map.y === this.gun4y && map.x === this.gun4x || map.y === this.gun4y +100 && map.x === this.gun4x  || map.y === this.gun4y +200 && map.x === this.gun4x  || map.y === this.gun4y +300 && map.x === this.gun4x  || map.y === this.gun4y +400 && map.x === this.gun4x ){
@@ -606,6 +735,7 @@ draw (){
    this.gun4x = 2000 ;
    this.gun4y = 2000 ; 
    map.life1 -= 1;
+   this.life.play();
   }
 
  if (map.x === this.gun5x && map.y === this.gun5y || map.x === this.gun5x +100 && map.y === this.gun5y  || map.x === this.gun5x +200 && map.y === this.gun5y  || map.x === this.gun5x +300 && map.y === this.gun5y  || map.x === this.gun5x +400 && map.y === this.gun5y ){
@@ -613,6 +743,7 @@ draw (){
    this.gun5x = 2000 ;
    this.gun5y = 2000 ;
    map.life1 -= 1;
+   this.life.play();
   }
 
  if (map.x === this.gun6x && map.y === this.gun6y || map.x === this.gun6x +100 && map.y === this.gun6y  || map.x === this.gun6x +200 && map.y === this.gun6y  || map.x === this.gun6x +300 && map.y === this.gun6y  || map.x === this.gun6x +400 && map.y === this.gun6y ){
@@ -620,6 +751,7 @@ draw (){
    this.gun6x = 2000 ;
    this.gun6y = 2000 ;
    map.life1 -= 1;
+   this.life.play();
   }
 
  if (map.y === this.gun7y && map.x === this.gun7x || map.y === this.gun7y +100 && map.x === this.gun7x  || map.y === this.gun7y +200 && map.x === this.gun7x  || map.y === this.gun7y +300 && map.x === this.gun7x  || map.y === this.gun7y +400 && map.x === this.gun7x ){
@@ -627,6 +759,7 @@ draw (){
    this.gun7x = 2000 ;
    this.gun7y = 2000 ;
    map.life1 -= 1;
+   this.life.play();
   }
 
  if (map.y === this.gun8y && map.x === this.gun8x || map.y === this.gun8y +100 && map.x === this.gun8x  || map.y === this.gun8y +200 && map.x === this.gun8x  || map.y === this.gun8y +300 && map.x === this.gun8x  || map.y === this.gun8y +400 && map.x === this.gun8x ){
@@ -634,6 +767,7 @@ draw (){
    this.gun8x = 2000 ;
    this.gun8y = 2000 ;
    map.life1 -= 1;
+   this.life.play();
   }
 
 
@@ -646,6 +780,7 @@ draw (){
    this.gun1x = 2000 ;
    this.gun1y = 2000 ;
    map.life2 -= 1;
+   this.life.play();
   }
     
  if (map.pl2x === this.gun2x && map.pl2y === this.gun2y || map.pl2x === this.gun2x +100 && map.pl2y === this.gun2y  || map.pl2x === this.gun2x +200 && map.pl2y === this.gun2y  || map.pl2x === this.gun2x +300 && map.pl2y === this.gun2y  || map.pl2x === this.gun2x +400 && map.pl2y === this.gun2y ){
@@ -653,6 +788,7 @@ draw (){
    this.gun2x = 2000 ;
    this.gun2y = 2000 ;
    map.life2 -= 1;
+   this.life.play();
   }
 
  if (map.pl2y === this.gun3y && map.pl2x === this.gun3x || map.pl2y === this.gun3y +100 && map.pl2x === this.gun3x  || map.pl2y === this.gun3y +200 && map.pl2x === this.gun3x  || map.pl2y === this.gun3y +300 && map.pl2x === this.gun3x  || map.pl2y === this.gun3y +400 && map.pl2x === this.gun3x ){
@@ -660,6 +796,7 @@ draw (){
    this.gun3x = 2000 ;
    this.gun3y = 2000 ; 
    map.life2 -= 1;
+   this.life.play();
   }
 
  if (map.pl2y === this.gun4y && map.pl2x === this.gun4x || map.pl2y === this.gun4y +100 && map.pl2x === this.gun4x  || map.pl2y === this.gun4y +200 && map.pl2x === this.gun4x  || map.pl2y === this.gun4y +300 && map.pl2x === this.gun4x  || map.pl2y === this.gun4y +400 && map.pl2x === this.gun4x ){
@@ -667,6 +804,7 @@ draw (){
    this.gun4x = 2000 ;
    this.gun4y = 2000 ; 
    map.life2 -= 1;
+   this.life.play();
   }
 
  if (map.pl2x === this.gun5x && map.pl2y === this.gun5y || map.pl2x === this.gun5x +100 && map.pl2y === this.gun5y  || map.pl2x === this.gun5x +200 && map.pl2y === this.gun5y  || map.pl2x === this.gun5x +300 && map.pl2y === this.gun5y  || map.pl2x === this.gun5x +400 && map.pl2y === this.gun5y ){
@@ -674,6 +812,7 @@ draw (){
    this.gun5x = 2000 ;
    this.gun5y = 2000 ;
    map.life2 -= 1;
+   this.life.play();
   }
 
  if (map.pl2x === this.gun6x && map.pl2y === this.gun6y || map.pl2x === this.gun6x +100 && map.pl2y === this.gun6y  || map.pl2x === this.gun6x +200 && map.pl2y === this.gun6y  || map.pl2x === this.gun6x +300 && map.pl2y === this.gun6y  || map.pl2x === this.gun6x +400 && map.pl2y === this.gun6y ){
@@ -681,6 +820,7 @@ draw (){
    this.gun6x = 2000 ;
    this.gun6y = 2000 ;
    map.life2 -= 1;
+   this.life.play();
   }
 
  if (map.pl2y === this.gun7y && map.pl2x === this.gun7x || map.pl2y === this.gun7y +100 && map.pl2x === this.gun7x  || map.pl2y === this.gun7y +200 && map.pl2x === this.gun7x  || map.pl2y === this.gun7y +300 && map.pl2x === this.gun7x  || map.pl2y === this.gun7y +400 && map.pl2x === this.gun7x ){
@@ -688,6 +828,7 @@ draw (){
    this.gun7x = 2000 ;
    this.gun7y = 2000 ;
    map.life2 -= 1;
+   this.life.play();
   }
 
  if (map.pl2y === this.gun8y && map.pl2x === this.gun8x || map.pl2y === this.gun8y +100 && map.pl2x === this.gun8x  || map.pl2y === this.gun8y +200 && map.pl2x === this.gun8x  || map.pl2y === this.gun8y +300 && map.pl2x === this.gun8x  || map.pl2y === this.gun8y +400 && map.pl2x === this.gun8x ){
@@ -695,6 +836,7 @@ draw (){
    this.gun8x = 2000 ;
    this.gun8y = 2000 ;
    map.life2 -= 1;
+   this.life.play();
   }
 
 
@@ -708,11 +850,11 @@ class Score {
 
   preload(){
 
-    this.scoreboard = loadImage('../images/Scoreboard.png')
-    this.heart = loadImage('../images/Heart.png')
-    this.heartEmpty = loadImage('../images/Heartempty.png')
-    this.iconPlayer1 = loadImage('../images/ScorePlayer1.png')
-    this.iconPlayer2 = loadImage('../images/ScorePlayer2.png')
+    this.scoreboard = loadImage('images/Scoreboard.png')
+    this.heart = loadImage('images/Heart.png')
+    this.heartEmpty = loadImage('images/Heartempty.png')
+    this.iconPlayer1 = loadImage('images/ScorePlayer1.png')
+    this.iconPlayer2 = loadImage('images/ScorePlayer2.png')
 
   }
 

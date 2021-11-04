@@ -2,13 +2,14 @@
 
 
 
-
+const home = new Home();
 const map = new Map ();
 const fire = new Fire ();
 const fire2 = new Fire2 ();
 const gun = new Gun ();
 const score = new Score();
-let site = 0;
+let sounds = true;
+
 
 
 
@@ -20,96 +21,59 @@ let site = 0;
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
   canvas.parent("canvas");
-  
+//   ambient.loop();
+  sounds = true
+  map.burn.setVolume(0.1)
 }
-
+ 
  
 function preload(){
 
-	this.song = loadSound('../sounds/fireSong.mp3')
 
-	this.home = loadImage('../images/home.png')
-	this.winPlayer2 = loadImage('../images/win-player2.png')
-	this.winPlayer1 = loadImage('../images/win-player1.png')
-	this.homeButton = loadImage('../images/Homebutton.png')
-	this.restartButton = loadImage('../images/Restartbutton.png')
-	this.h = loadImage('../images/H.png')
-	this.r = loadImage('../images/R.png')
-	this.m = loadImage('../images/M.png')
-
-
+	ambient = loadSound ('sounds/background.mp3');
+    home.preload();
     map.preload();
+	fire.preload();
+	fire2.preload();
 	gun.preload();
 	score.preload();
 	
-	
-    
-    
-    
-  }
+}
 
 function draw() {
+	console.log(sounds)
 
-	if(keyCode === 13){
-		site = 1
-	}
+	home.draw();
 
-	if (site === 0){
-		image(this.home, 0 , 0 , 1500 ,1300);	
-	}
+	if (home.site !== 3 && home.site !== 2){
+    map.draw();
+    gun.draw();
+    score.draw();
+	home.site = 1;
+    }
 
-	if(map.life1 === 0){
-		site = 2;
-		image(this.winPlayer2, 0 , 0 , 1500 ,1300);
-		image(this.homeButton, 500 , 1100 , 100 ,100);
-		image(this.h, 520 , 1220 , 60 ,45);
-		image(this.restartButton, 900 , 1100 , 100 ,100);
-		image(this.r, 920 , 1220 , 60 ,45);
-
+	if (home.sounds === false){
+		map.burn.stop();
+		ambient.stop();
+		fire.life.stop();
+		fire2.life.stop();
+		gun.life.stop();
 		
-		if (keyCode === 72){
-		
-			site = 0
-		}
-		if (keyCode === 82){
-			site = 1
-		}
-
-
 	}
-
-	if(map.life2 === 0){
-		site = 2;
-		image(this.winPlayer1, 0 , 0 , 1500 ,1300);
-		image(this.homeButton, 500 , 1100 , 100 ,100);
-		image(this.h, 520 , 1220 , 60 ,45);
-		image(this.restartButton, 900 , 1100 , 100 ,100);
-		image(this.r, 920 , 1220 , 60 ,45);
-
-		
-		if (keyCode === 72){
-		
-			site = 0
-		}
-		if (keyCode === 82){
-			site = 1
-		}
-
-	}
-
-	if (site !== 0 && site !== 2){
-  map.draw();
-  gun.draw();
-  score.draw();
-}
-  
-  
-  
-  
   
 }
 
+function sound(){
+  
+    
+	// if (sounds === true){
+		ambient.pause();
+	// 	sounds = false;
+	// } else {
+	// 	sounds = true;
+	// }
 
+ }
 
 function keyPressed() {
 
@@ -161,7 +125,28 @@ function keyPressed() {
 		map.explosion2();
 		
 	}
-}
+
+
+	// Sites
+
+	if(keyCode === 13){
+		home.site = 1
+	}
+
+	if(keyCode === 77){
+	
+		if (sounds === true){
+			ambient.pause()
+			sounds = false;
+		}
+		if(sounds === false){
+			ambient.loop()
+			sounds = true;
+		}
+		
+	}
+	
+} 
 
 
 
