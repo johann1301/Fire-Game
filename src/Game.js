@@ -703,6 +703,86 @@ draw (){
 
 
 
+class Score {
+
+  preload(){
+
+    this.scoreboard = loadImage('../images/Scoreboard.png')
+    this.heart = loadImage('../images/Heart.png')
+    this.heartEmpty = loadImage('../images/Heartempty.png')
+    this.iconPlayer1 = loadImage('../images/ScorePlayer1.png')
+    this.iconPlayer2 = loadImage('../images/ScorePlayer2.png')
+
+  }
+
+
+  constructor(){
+
+   this.scoreHeight = 100;
+   this.scoreWidth = 250;
+
+
+  }
+
+  draw(){
+
+    image(this.scoreboard, 0 , 0 , this.scoreWidth ,this.scoreHeight);
+    image(this.scoreboard, 1250 , 0 , this.scoreWidth ,this.scoreHeight);
+    image(this.iconPlayer1, 20 , 7 , 70 ,70);
+    image(this.iconPlayer2, 1270 , 7 , 70 ,70);
+
+    //Player 1
+
+    if (map.life1 === 0|| map.life1 === -1) {
+      image(this.heartEmpty, 100 , 30 , 30 ,30)
+    } else {
+      image(this.heart, 100 , 30 , 30 ,30)
+    }
+
+    if (map.life1 === 1 || map.life1 === 0) {
+      image(this.heartEmpty, 150 , 30 , 30 ,30)
+    } else {
+      image(this.heart, 150 , 30 , 30 ,30)
+    }
+
+    if (map.life1 === 2 || map.life1 === 1 || map.life1 === 0) {
+      image(this.heartEmpty, 200 , 30 , 30 ,30)
+    } else {
+      image(this.heart, 200 , 30 , 30 ,30)
+    }
+
+    //Player 2
+
+    if (map.life2 === 0|| map.life2 === -1) {
+      image(this.heartEmpty, 1350 , 30 , 30 ,30)
+    } else {
+      image(this.heart, 1350 , 30 , 30 ,30)
+    }
+
+    if (map.life2 === 1 || map.life2 === 0) {
+      image(this.heartEmpty, 1400 , 30 , 30 ,30)
+    } else {
+      image(this.heart, 1400 , 30 , 30 ,30)
+    }
+
+    if (map.life2 === 2 || map.life2 === 1 || map.life2 === 0) {
+      image(this.heartEmpty, 1450 , 30 , 30 ,30)
+    } else {
+      image(this.heart, 1450 , 30 , 30 ,30)
+    }
+
+ 
+  }
+
+
+
+  
+
+  
+}
+
+
+
 
 
 

@@ -7,6 +7,7 @@ const map = new Map ();
 const fire = new Fire ();
 const fire2 = new Fire2 ();
 const gun = new Gun ();
+const score = new Score();
 
 
 
@@ -21,10 +22,11 @@ function setup() {
   
 }
 
-
+ 
 function preload(){
     map.preload();
 	gun.preload();
+	score.preload();
 	
 	
     
@@ -35,6 +37,7 @@ function preload(){
 function draw() {
   map.draw();
   gun.draw();
+  score.draw();
   
   
   
