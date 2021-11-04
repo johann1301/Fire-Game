@@ -1,14 +1,10 @@
-
-
-
-
 const home = new Home();
 const map = new Map ();
 const fire = new Fire ();
 const fire2 = new Fire2 ();
 const gun = new Gun ();
 const score = new Score();
-let sounds = true;
+
 
 
 
@@ -21,7 +17,7 @@ let sounds = true;
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
   canvas.parent("canvas");
-//   ambient.loop();
+  ambient.loop();
   sounds = true
   map.burn.setVolume(0.1)
 }
@@ -52,28 +48,11 @@ function draw() {
 	home.site = 1;
     }
 
-	if (home.sounds === false){
-		map.burn.stop();
-		ambient.stop();
-		fire.life.stop();
-		fire2.life.stop();
-		gun.life.stop();
-		
-	}
+	
   
 }
 
-function sound(){
-  
-    
-	// if (sounds === true){
-		ambient.pause();
-	// 	sounds = false;
-	// } else {
-	// 	sounds = true;
-	// }
 
- }
 
 function keyPressed() {
 
@@ -134,21 +113,14 @@ function keyPressed() {
 	}
 
 	if(keyCode === 77){
-	
-		if (sounds === true){
+		if (ambient.isPlaying()) {
 			ambient.pause()
-			sounds = false;
-		}
-		if(sounds === false){
+		} else if (!ambient.isPlaying()) {
 			ambient.loop()
-			sounds = true;
 		}
 		
 	}
 	
 } 
-
-
-
 
 
