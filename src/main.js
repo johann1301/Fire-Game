@@ -20,6 +20,7 @@ function setup() {
   ambient.loop();
   sounds = true;
   map.burn.setVolume(0.1);
+  ambient.setVolume(0.1);
   
 }
  
@@ -28,6 +29,7 @@ function preload(){
 
 
 	ambient = loadSound ('sounds/fireSong.mp3');
+	this.music = loadImage('images/Music.png')
     home.preload();
     map.preload();
 	fire.preload();
@@ -47,6 +49,8 @@ function draw() {
     score.draw();
 	home.site = 1;
     }
+
+	image(this.music, 250, 20, 220, 60)
 
 	
   
